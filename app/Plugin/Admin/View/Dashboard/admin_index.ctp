@@ -1,0 +1,1 @@
+<?= $this->Session->read('Auth.User.name');?>

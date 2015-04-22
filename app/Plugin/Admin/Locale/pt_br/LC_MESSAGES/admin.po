@@ -1,0 +1,209 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-04-01 23:20-0300\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/DashboardController.php:6
+msgid "Dashboard"
+msgstr "Painel"
+
+#: Controller/GroupsController.php:7
+msgid "Groups"
+msgstr "Grupos"
+
+#: Controller/GroupsController.php:21
+msgid "Group created."
+msgstr "Grupo criado."
+
+#: Controller/GroupsController.php:31
+#: Controller/UsersController.php:31;66
+msgid "Invalid ID"
+msgstr "ID inv&aacute;lido"
+
+#: Controller/GroupsController.php:38
+msgid "The Group was saved."
+msgstr "O grupo foi criado"
+
+#: Controller/GroupsController.php:49
+msgid "Invalid ID."
+msgstr "Id inv&aacute;lido"
+
+#: Controller/GroupsController.php:54
+msgid "The user was deleted."
+msgstr "O Usuario foi exclu&iacute;do"
+
+#: Controller/PermissionsController.php:9
+#: View/Users/admin_index.ctp:15
+msgid "Permissions"
+msgstr "Controle de acesso"
+
+#: Controller/PermissionsController.php:111
+msgid "All Controllers was sincronized."
+msgstr "Todos os controllers foram sincronizados"
+
+#: Controller/UsersController.php:8
+msgid "Users"
+msgstr "Usuarios"
+
+#: Controller/UsersController.php:21
+msgid "User saved."
+msgstr "O Usuario foi salvo."
+
+#: Controller/UsersController.php:36
+msgid "User was saved."
+msgstr "O Usuario foi salvo."
+
+#: Controller/UsersController.php:71
+msgid "password was saved."
+msgstr "A senha foi salva."
+
+#: Controller/UsersController.php:79
+msgid "Invalid ID!"
+msgstr "ID inv&aacute;lido"
+
+#: Controller/UsersController.php:83
+msgid "User was deleted."
+msgstr "O Usuario foi exclu&iacute;do"
+
+#: Controller/Component/AclPermissionsComponent.php:58
+msgid "You have no authority to access this router."
+msgstr "Esta &aacute;rea tem acesso restrito"
+
+#: View/Groups/admin_add.ctp:3
+#: View/Groups/admin_edit.ctp:6
+msgid "Name:"
+msgstr "Nome:"
+
+#: View/Groups/admin_add.ctp:17
+#: View/Groups/admin_edit.ctp:20
+#: View/Users/admin_add.ctp:68
+#: View/Users/admin_reset_password.ctp:32
+msgid "Save"
+msgstr "Salvar"
+
+#: View/Groups/admin_index.ctp:11
+#: View/Users/admin_add.ctp:15
+#: View/Users/admin_edit.ctp:32
+#: View/Users/admin_index.ctp:29
+msgid "Name"
+msgstr "Nome"
+
+#: View/Users/admin_edit.ctp:72
+msgid "Save"
+msgstr "Salvar"
+
+#: View/Groups/admin_index.ctp:12
+#: View/Users/admin_index.ctp:33
+msgid "Actions"
+msgstr "A&ccedil;&otilde;es"
+
+#: View/Groups/admin_index.ctp:21
+#: View/Users/admin_index.ctp:42
+msgid "Edit"
+msgstr "Editar"
+
+#: View/Groups/admin_index.ctp:28
+#: View/Users/admin_index.ctp:49
+msgid "Delete"
+msgstr "Excluir"
+
+#: View/Permissions/admin_index.ctp:5
+msgid "Sincronize"
+msgstr "Sincronizar"
+
+#: View/Permissions/admin_index.ctp:59
+msgid "alowed"
+msgstr "permitido"
+
+#: View/Permissions/admin_index.ctp:61
+msgid "denied"
+msgstr "negado"
+
+#: View/Permissions/admin_index.ctp:64
+msgid "allowed"
+msgstr "permitido"
+
+#: View/Users/admin_add.ctp:3
+#: View/Users/admin_edit.ctp:20
+#: View/Users/admin_index.ctp:30
+msgid "Group"
+msgstr "Grupo"
+
+#: View/Users/admin_add.ctp:41
+#: View/Users/admin_edit.ctp:58
+#: View/Users/admin_index.ctp:32
+#: View/Users/admin_login.ctp:10
+msgid "Username"
+msgstr "Usuario"
+
+#: View/Users/admin_add.ctp:54
+#: View/Users/admin_login.ctp:16
+msgid "Password"
+msgstr "Senha"
+
+#: View/Users/admin_edit.ctp:4
+msgid "Reset password"
+msgstr "Redefinir senha"
+
+#: View/Users/admin_index.ctp:4
+msgid "Add"
+msgstr "Adicionar"
+
+#: View/Users/admin_login.ctp:7
+msgid "username"
+msgstr "Usuario"
+
+#: View/Users/admin_login.ctp:13
+msgid "password"
+msgstr "Senha"
+
+#: View/Users/admin_login.ctp:20
+msgid "Login"
+msgstr "Entrar"
+
+#: View/Users/admin_reset_password.ctp:7
+msgid "Password:"
+msgstr "Senha"
+
+#: View/Users/admin_reset_password.ctp:19
+msgid "Password again:"
+msgstr "Repita a senha"
+
+#: View/Layouts/admin.ctp:49
+msgid "Dashboard"
+msgstr "Painel"
+
+#: View/Layouts/admin.ctp:51
+msgid "Languages"
+msgstr "Idiomas"
+
+#: View/Layouts/admin.ctp:56
+msgid "Brazilian"
+msgstr "Brasil"
+
+#: View/Layouts/admin.ctp:65
+msgid "English"
+msgstr "Inglês"
+
+#: View/Layouts/admin.ctp:72
+msgid "User control"
+msgstr "Controle de usuarios"
+
+#: View/Layouts/admin.ctp:82
+msgid "Logout"
+msgstr "Sair"
+
+#: View/Permissions/admin_index.ctp:21
+msgid "Section"
+msgstr "Seção"
