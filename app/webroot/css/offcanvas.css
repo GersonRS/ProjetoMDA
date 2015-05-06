@@ -12,7 +12,14 @@ body {
 footer {
   padding: 30px 0;
 }
-
+.content{
+  min-height: 430px;
+}
+.imagem{
+  width: 441px;
+  margin-right: auto;
+  margin-left: auto;
+}
 /*
  * Off Canvas
  * --------------------------------------------------

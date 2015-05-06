@@ -1,24 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title><?php echo $title_for_layout; ?></title>
-    <?php 
-      echo $this->Html->css(array(
-        '/admin/css/bootstrap.min.css',
-        '/admin/css/dashboard.css',
-        ));
-      echo $this->Html->script('jquery-1.11.2.min');
-     ?>
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta name="description" content="Site de consultas dos dados do MDA">
+    <meta name="author" content="Gerson">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title><?php echo $title_for_layout;?></title>
     <?php 
           $app = array();
           $app['basePath'] = Router::url('/');
@@ -29,24 +19,104 @@
           );
           echo $this->Html->scriptBlock('var App = ' . $this->Js->object($app) . ';');
      ?>
+    <?php 
+        echo $this->Html->meta('icon');
+        echo $this->fetch('meta');
+        
+        echo $this->Html->css(array(
+            'bootstrap.min',
+            'font-awesome.min',
+            'offcanvas',
+            'jquery-ui',
+            'select2',
+            'select2-bootstrap',
+            array('inline' => false )
+        ));
+      
+        echo $this->fetch('css');
+      
+      echo $this->Html->script(array(
+            'jquery-1.11.2.min',
+            'bootstrap.min',
+            'offcanvas',
+            'jquery-ui',
+            'jquery.maskedinput',
+            'select2',
+            'select2_locale_pt-BR',
+          array('inline'=>false)
+      ));
+      echo $this->fetch('script');
+    ?>
+    <script>
+    $(function() {
+      $( "#datepicker" ).datepicker();
+    });
+    </script>
   </head>
 
   <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">CakePHP Admin Plugin</a>
+          <?php echo $this->Html->link(__('MDA'), array('controller' => 'pages', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('class'=>'navbar-brand','escape' => false)); ?>
         </div>
-        <div class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Inicio'), array('controller' => 'pages', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo '<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;Mais Gestão' ?> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Empreendimentos'), array('controller' => 'empreendimentos', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Pars'), array('controller' => 'pairs', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Areas'), array('controller' => 'areas', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Nucleos'), array('controller' => 'nucleos', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Subareas'), array('controller' => 'subareas', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Questionarios'), array('controller' => 'questionarios', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Checklists'), array('controller' => 'checklists', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Usuarios'), array('controller' => 'usuarios', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Matrizes'), array('controller' => 'matrizes', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Checklists Questionarios'), array('controller' => 'checklistsquestionarios', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Perfils'), array('controller' => 'Perfils', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Ufs'), array('controller' => 'Ufs', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo '<span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Mapa do Site' ?> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Cooperativa'), array('controller' => 'Cooperativas', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Comercializado'), array('controller' => 'Comercializados', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Logistica'), array('controller' => 'Logisticas', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Agronegocio'), array('controller' => 'Agronegocios', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Credito'), array('controller' => 'Credits', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Finanças'), array('controller' => 'Financas', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Asssociado'), array('controller' => 'Asssociados', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Vendas e Marketing'), array('controller' => 'VendaMarketings', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Funcionario'), array('controller' => 'Funcionarios', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;ATERProduto'), array('controller' => 'ATERProdutos', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Emissão de Nota'), array('controller' => 'EmissaoNotas', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Recurso Humano'), array('controller' => 'RecursoHumanos', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Faturamento'), array('controller' => 'Faturamentos', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Produto'), array('controller' => 'Produtos', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Socio'), array('controller' => 'Socios', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Valor Receita'), array('controller' => 'ValorReceitas', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Valor Despesa'), array('controller' => 'ValorDespesas', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Valor Investomento'), array('controller' => 'ValorInvestimentos', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+                <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Valor Patrimônio'), array('controller' => 'ValorPatrimonios', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+              </ul>
+            </li>
+            <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Pesquisar'), array('controller' => 'pesquisas', 'action' => 'index', 'admin'=>false , 'plugin'=>null), array('escape' => false)); ?> </li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><?php echo $this->Html->link(__d('admin', 'Dashboard'), '/admin'); ?></li>
+            <?php
+            if($this->Session->read('Auth.User.name')){?>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __d('admin', 'Languages'); ?> <b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu">
@@ -70,42 +140,39 @@
                 </li>                
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __d('admin', 'User control'); ?> <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu">
-                <li>
-                  <?php echo $this->Html->link(__d('admin', 'Users'), array('plugin' => 'admin', 'controller' => 'users', 'action' => 'index', 'admin' => true)); ?>
-                </li>
+            <li class="dropdown user-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $this->Session->read('Auth.User.name');?><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><?php echo $this->Html->link('<i class="fa fa-user"></i> Area Administrativa', '/admin',array('escape' => false)); ?></li>
+                <li><?php echo $this->Html->link('<i class="fa fa-gear"></i> '.__d('admin', 'Users'), array('plugin' => 'admin', 'controller' => 'users', 'action' => 'index', 'admin' => true),array('escape' => false)); ?></li>
                 <li class="divider"></li>
-                <li>
-                  <?php echo $this->Html->link(__d('admin', 'Logout'), array('plugin' => 'admin', 'controller' => 'users', 'action' => 'logout', 'admin' => true)); ?>
-                </li>
+                <li><?php echo $this->Html->link(__d('admin', 'Logout'), array('plugin' => 'admin', 'controller' => 'users', 'action' => 'logout', 'admin' => true)); ?></li>
               </ul>
             </li>
+            <?php
+              }else{
+            ?>
+            <li><?php echo $this->Html->link(__d('admin', 'Login'), array('plugin' => 'admin', 'controller' => 'users', 'action' => 'login', 'admin' => true)); ?></li>
+            <?php    
+              }
+            ?>
           </ul>
-        </div>
+        </div><!--/.nav-collapse -->
       </div>
-    </div>
+    </nav>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 main">
-          <!-- <h1 class="page-header">Dashboard</h1> -->
-
-          <div class="row-fluid">
-            <?php 
-              echo $this->Session->flash();
-              echo $this->Session->flash('auth');
-              ?>
-            <h2 class="sub-header"><?php echo $title_for_layout; ?></h2>
-            <?php echo $this->fetch('content'); ?>
-          </div>
-      </div>
-    </div>
-    <?php 
-      echo $this->Html->script('/admin/js/bootstrap.min.js');
-     ?>
-     <script type="text/javascript">
+    <div class="container content row-fluid">
+      <p class="pull-right visible-xs">
+        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+      </p>
+      <?php echo $this->Session->flash(); ?>
+      <?php echo $this->fetch('content'); ?>
+    </div> <!-- /container -->
+    <hr>
+    <footer>
+      <p>&copy; by Gerson</p>
+    </footer>
+    <script type="text/javascript">
       $(function(){
         $('.lang-flag').each(function(i, val){
           $alt = val.alt;

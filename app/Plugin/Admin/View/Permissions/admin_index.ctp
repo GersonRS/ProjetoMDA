@@ -1,3 +1,6 @@
+<div class="row-fluid">
+	<h2 class="sub-header"><?php echo $title_for_layout; ?></h2>
+</div>
 <div class="row">
 	<div class="col-md-12">
 		<ul class="nav nav-pills">

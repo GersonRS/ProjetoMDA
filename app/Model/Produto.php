@@ -7,7 +7,7 @@ App::uses('AppModel', 'Model');
  */
 class Produto extends AppModel {
 
-
+	public $displayField = 'Nome';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

@@ -1,3 +1,6 @@
+<div class="row-fluid">
+	<h2 class="sub-header"><?php echo $title_for_layout; ?></h2>
+</div>
 <ul class="nav nav-pills">
   <li class="active">
   	<?php 

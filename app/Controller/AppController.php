@@ -51,6 +51,7 @@ class AppController extends Controller {
 	public function beforeFilter(){
 		parent::beforeFilter();
 		$this->AclPermissions->filter();
+		$this->layout = 'admin';
 	}
 
 	var $helpers = array(

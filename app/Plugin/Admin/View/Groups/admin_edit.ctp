@@ -1,3 +1,6 @@
+<div class="row-fluid">
+	<h2 class="sub-header"><?php echo $title_for_layout; ?></h2>
+</div>
 <?php 
 	echo $this->Form->create('Group', array('class' => 'form-horizontal', 'role' => 'form')); 
 	echo $this->Form->input('id');

@@ -43,14 +43,14 @@
 <tr>
 		<th><?php echo __('Produto'); ?></th>
 		<td>
-			<?php echo $this->Html->link($comercializado['Produto']['id'], array('controller' => 'produtos', 'action' => 'view', $comercializado['Produto']['id'])); ?>
+			<?php echo $this->Html->link($comercializado['Produto']['Nome'], array('controller' => 'produtos', 'action' => 'view', $comercializado['Produto']['id'])); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
 		<th><?php echo __('Cooperativa'); ?></th>
 		<td>
-			<?php echo $this->Html->link($comercializado['Cooperativa']['id'], array('controller' => 'cooperativas', 'action' => 'view', $comercializado['Cooperativa']['id'])); ?>
+			<?php echo $this->Html->link($comercializado['Cooperativa']['razao_social'], array('controller' => 'cooperativas', 'action' => 'view', $comercializado['Cooperativa']['id'])); ?>
 			&nbsp;
 		</td>
 </tr>

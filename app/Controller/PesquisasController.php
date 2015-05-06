@@ -22,13 +22,8 @@ class PesquisasController extends AppController {
  */
 	public function index() {
 
-		$this->Filter->addFilters(
-	        array(
-	            'filter1' => array(
-	                'Cooperativa.razao_social' => array('operator' => 'LIKE')
-	            )
-	        )
-	    );
+		 // Adiciona filtro
+    	$this->Filter->addFilters('filter1');
 	    
 	    // Define conditions
 	    $this->paginate = array('limit' => 5);
@@ -41,7 +36,7 @@ class PesquisasController extends AppController {
 			throw new NotFoundException(__('Invalid cooperativa'));
 		}
 		$options = array('conditions' => array('Cooperativa.' . $this->Cooperativa->primaryKey => $id));
-		$this->Cooperativa->recursive = 3;
+		$this->Cooperativa->recursive = 2;
 		$this->set('cooperativa', $this->Cooperativa->find('first', $options));
 	}
 

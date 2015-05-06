@@ -1,3 +1,6 @@
+<div class="row-fluid">
+  <h2 class="sub-header"><?php echo $title_for_layout; ?></h2>
+</div>
 <?php echo $this->Form->create('Group', array('class' => 'form-horizontal', 'role' => 'form')); ?>
       <div class="form-group <?php echo $this->Form->isFieldError('name') ? 'has-error' : '' ?>">
         <label class="col-sm-2 control-label"><?php echo __d('admin', 'Name:'); ?></label>

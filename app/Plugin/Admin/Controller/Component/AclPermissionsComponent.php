@@ -75,14 +75,14 @@ class AclPermissionsComponent extends Component
 		 );
 		
 		 $this->_controller->Auth->logoutRedirect = array(
-		     'plugin' => 'admin',
-		     'controller' => 'users',
-		     'action' => 'login',
+		     'plugin' => null,
+		     'controller' => 'pages',
+		     'action' => 'index',
 		 );
 		
 		 $this->_controller->Auth->loginRedirect = array(
-		     'plugin' => 'admin',
-		     'controller' => 'dashboard',
+		     'plugin' => NULL,
+		     'controller' => 'pages',
 		     'action' => 'index',
 		 );
 

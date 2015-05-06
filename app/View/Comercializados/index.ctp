@@ -53,10 +53,10 @@
 					<tr>
 						<td><?php echo h($comercializado['Comercializado']['id']); ?>&nbsp;</td>
 								<td>
-			<?php echo $this->Html->link($comercializado['Produto']['id'], array('controller' => 'produtos', 'action' => 'view', $comercializado['Produto']['id'])); ?>
+			<?php echo $this->Html->link($comercializado['Produto']['Nome'], array('controller' => 'produtos', 'action' => 'view', $comercializado['Produto']['id'])); ?>
 		</td>
 								<td>
-			<?php echo $this->Html->link($comercializado['Cooperativa']['id'], array('controller' => 'cooperativas', 'action' => 'view', $comercializado['Cooperativa']['id'])); ?>
+			<?php echo $this->Html->link($comercializado['Cooperativa']['razao_social'], array('controller' => 'cooperativas', 'action' => 'view', $comercializado['Cooperativa']['id'])); ?>
 		</td>
 						<td><?php echo h($comercializado['Comercializado']['qtd_PAA']); ?>&nbsp;</td>
 						<td><?php echo h($comercializado['Comercializado']['qtd_PNAE']); ?>&nbsp;</td>

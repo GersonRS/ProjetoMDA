@@ -18,6 +18,8 @@ App::uses('AppModel', 'Model');
  */
 class Cooperativa extends AppModel {
 
+	public $displayField = 'razao_social';
+
 /**
  * Validation rules
  *

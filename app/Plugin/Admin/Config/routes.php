@@ -7,6 +7,8 @@ Router::connect('/admin', array('plugin' => 'admin', 'controller' => 'dashboard'
 
 Router::connect('/admin/dashboard', array('plugin' => 'admin', 'controller' => 'dashboard', 'action' => 'index', 'admin' => true));
 
+Router::connect('/admin/pages', array('controller' => 'pages', 'action' => 'display'));
+
 
 Router::connect('/admin/users', array(
 	'plugin' => 'admin',

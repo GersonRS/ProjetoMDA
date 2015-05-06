@@ -16,7 +16,29 @@
 				<?php echo $this->Search->create(); ?>
 				<div class="form-group container">
 				    <div class="col-sm-2">
-				      	Razão Social:
+				      	<?php echo $this->Search->selectFields('filter1', array(
+					            'Cooperativa.CNPJ' => __('CNPJ', true),
+					            'Cooperativa.razao_social' => __('Razão Social', true),
+					            'Cooperativa.municipio' => __('Municipio', true),
+					            'Cooperativa.inscricao_estadual' => __('Inscrição Estadual', true),
+					            'Cooperativa.inscricao_municipal' => __('Inscrição Municipal', true),
+					            'Cooperativa.data_constituicao' => __('Data de Constituição', true),
+					            'Cooperativa.sigla' => __('Sigla', true),
+					            'Cooperativa.uf' => __('UF', true),
+					            'Cooperativa.endereco_completo' => __('Endereço Completo', true)
+					        ), 
+				      		array(
+				      			'class' => 'select-box form-control'
+				      			)
+				      		); 
+
+				      	echo $this->Search->selectOperators('filter1',
+					        array(
+					            'LIKE' => __('contendo', true)
+					        ),
+					        array('type' => 'hidden')
+					    );
+				      	?>
 				    </div>
 				
 				    <div class="col-sm-9">
@@ -24,11 +46,12 @@
 				    </div>
 				
 				    <div class="col-sm-1">
-				      	<?php echo $this->Search->submit('Filter', array('class' => 'btn btn-default'));?>
+				      	<?php echo $this->Search->submit('Filtrar', array('class' => 'btn btn-default'));?>
 				    </div>
 				</div>
 			</div>
-			<table cellpadding="0" cellspacing="0" class="table table-striped">
+
+			<table cellpadding="0" cellspacing="0" class="table table-striped table-hover table-bordered">
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('CNPJ'); ?></th>
